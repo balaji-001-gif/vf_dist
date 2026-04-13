@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshRoute Farmer Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Inter', sans-serif; }
+        .navbar { background-color: #2e7d32; }
+        .card { border: none; border-radius: 12px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .stat-card { background: linear-gradient(45deg, #2e7d32, #4caf50); color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top p-3 mb-4 shadow">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">🌿 FreshRoute Farmer</span>
+            <div class="d-flex">
+                <span class="text-white me-3 d-none d-md-inline">Welcome, {{ farmer_name }}</span>
+                <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 shadow-sm">
+                    <small>Today's Weight</small>
+                    <h3>{{ "{:,.2f}".format(today_weight) }} kg</h3>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 shadow-sm">
+                    <small>Today's Earnings</small>
+                    <h3>₹{{ "{:,.2f}".format(today_amount) }}</h3>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card bg-white p-3 shadow-sm">
+                    <small class="text-muted">Pending Payment</small>
+                    <h3 class="text-danger">₹{{ "{:,.2f}".format(pending_payment) }}</h3>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card bg-white p-3 shadow-sm">
+                    <small class="text-muted">Total Outstanding</small>
+                    <h3 class="text-success">₹{{ "{:,.2f}".format(total_outstanding) }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="card bg-white p-4 shadow-sm mb-4">
+                    <h5 class="mb-3">Recent Procurements</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Weight</th>
+                                    <th>Amount</th>
+                                    <th>QC Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for proc in procurements %}
+                                <tr>
+                                    <td>{{ proc.procurement_date }}</td>
+                                    <td>{{ proc.total_weight_kg }} kg</td>
+                                    <td>₹{{ proc.total_amount }}</td>
+                                    <td>
+                                        {% if proc.quality_check_status == 'Passed' %}
+                                            <span class="badge bg-success">Passed</span>
+                                        {% elif proc.quality_check_status == 'Pending' %}
+                                            <span class="badge bg-warning text-dark">Pending</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">{{ proc.quality_check_status }}</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card bg-white p-4 shadow-sm">
+                    <h5 class="mb-3">Live Mandi Prices</h5>
+                    <ul class="list-group list-group-flush">
+                        {% for item in items %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ item.item_name }}
+                            <span class="fw-bold">₹{{ item.market_price_per_kg }}/kg</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
