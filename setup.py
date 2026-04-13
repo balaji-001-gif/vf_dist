@@ -10,7 +10,6 @@ setup(
     zip_safe=False,
     include_package_data=True,
     install_requires=[
-        "frappe",
         "requests>=2.28.0",
         "twilio>=8.0.0",
         "paho-mqtt>=1.6.0",
