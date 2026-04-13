@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "autoname": "field:vehicle_number",
+ "creation": "2026-04-13 17:40:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_details_sb",
+  "vehicle_number",
+  "vehicle_type",
+  "capacity_kg",
+  "refrigerated",
+  "status",
+  "driver_details_sb",
+  "driver_name",
+  "driver_mobile",
+  "tracking_sb",
+  "gps_device_id",
+  "compliance_sb",
+  "insurance_expiry",
+  "fitness_expiry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Details"
+  },
+  {
+   "fieldname": "vehicle_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Vehicle Type",
+   "options": "Mini Truck\nTempo\nRefrigerated Van\nBike",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity_kg",
+   "fieldtype": "Float",
+   "label": "Capacity (kg)"
+  },
+  {
+   "default": "0",
+   "fieldname": "refrigerated",
+   "fieldtype": "Check",
+   "label": "Refrigerated"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Available\nOn Route\nMaintenance"
+  },
+  {
+   "fieldname": "driver_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Driver Details"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Link",
+   "label": "Driver Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "driver_mobile",
+   "fieldtype": "Phone",
+   "label": "Driver Mobile"
+  },
+  {
+   "fieldname": "tracking_sb",
+   "fieldtype": "Section Break",
+   "label": "Tracking"
+  },
+  {
+   "fieldname": "gps_device_id",
+   "fieldtype": "Data",
+   "label": "GPS Device ID"
+  },
+  {
+   "fieldname": "compliance_sb",
+   "fieldtype": "Section Break",
+   "label": "Compliance"
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry"
+  },
+  {
+   "fieldname": "fitness_expiry",
+   "fieldtype": "Date",
+   "label": "Fitness Expiry"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Master",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 17:40:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Vehicle Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

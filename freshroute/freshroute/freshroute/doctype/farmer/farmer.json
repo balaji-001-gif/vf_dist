@@ -1,0 +1,251 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 17:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "farmer_details_sb",
+  "farmer_name",
+  "farmer_code",
+  "mobile_number",
+  "alternate_mobile",
+  "email_id",
+  "portal_user",
+  "active",
+  "kyc_sb",
+  "kyc_status",
+  "aadhar_number",
+  "pan_number",
+  "kyc_documents",
+  "bank_sb",
+  "bank_account_name",
+  "bank_account_number",
+  "ifsc_code",
+  "location_sb",
+  "village",
+  "taluka",
+  "district",
+  "state",
+  "pincode",
+  "gps_coordinates",
+  "farm_sb",
+  "farm_size_acres",
+  "primary_produce",
+  "agent",
+  "stats_sb",
+  "total_outstanding",
+  "supplier",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "farmer_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Farmer Details"
+  },
+  {
+   "fieldname": "farmer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Farmer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "farmer_code",
+   "fieldtype": "Data",
+   "label": "Farmer Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "alternate_mobile",
+   "fieldtype": "Phone",
+   "label": "Alternate Mobile"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "portal_user",
+   "fieldtype": "Link",
+   "label": "Portal User",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "kyc_sb",
+   "fieldtype": "Section Break",
+   "label": "KYC Information"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "kyc_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "KYC Status",
+   "options": "Pending\nVerified\nRejected",
+   "reqd": 1
+  },
+  {
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "PAN Number"
+  },
+  {
+   "fieldname": "kyc_documents",
+   "fieldtype": "Attach",
+   "label": "KYC Documents"
+  },
+  {
+   "fieldname": "bank_sb",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "bank_account_name",
+   "fieldtype": "Data",
+   "label": "Bank Account Name"
+  },
+  {
+   "fieldname": "bank_account_number",
+   "fieldtype": "Password",
+   "label": "Bank Account Number"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "location_sb",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Data",
+   "label": "Village"
+  },
+  {
+   "fieldname": "taluka",
+   "fieldtype": "Data",
+   "label": "Taluka"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "gps_coordinates",
+   "fieldtype": "Geolocation",
+   "label": "GPS Coordinates"
+  },
+  {
+   "fieldname": "farm_sb",
+   "fieldtype": "Section Break",
+   "label": "Farm Info"
+  },
+  {
+   "fieldname": "farm_size_acres",
+   "fieldtype": "Float",
+   "label": "Farm Size (Acres)"
+  },
+  {
+   "fieldname": "primary_produce",
+   "fieldtype": "Table MultiSelect",
+   "label": "Primary Produce",
+   "options": "Item"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "User"
+  },
+  {
+   "fieldname": "stats_sb",
+   "fieldtype": "Section Break",
+   "label": "Stats"
+  },
+  {
+   "fieldname": "total_outstanding",
+   "fieldtype": "Currency",
+   "label": "Total Outstanding",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 17:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Farmer",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

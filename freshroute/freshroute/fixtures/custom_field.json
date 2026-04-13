@@ -1,0 +1,60 @@
+[
+ {
+  "dt": "Item",
+  "fieldname": "produce_category",
+  "fieldtype": "Select",
+  "insert_after": "item_group",
+  "label": "Produce Category",
+  "options": "Vegetable\nFruit\nHerb\nExotic"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "perishability_days",
+  "fieldtype": "Int",
+  "insert_after": "produce_category",
+  "label": "Perishability (Days)"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "min_purchase_qty_kg",
+  "fieldtype": "Float",
+  "insert_after": "perishability_days",
+  "label": "Min Purchase Qty (kg)"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "market_price_per_kg",
+  "fieldtype": "Currency",
+  "insert_after": "min_purchase_qty_kg",
+  "label": "Market Price per kg",
+  "read_only": 1
+ },
+ {
+  "dt": "Item",
+  "fieldname": "grading_standards",
+  "fieldtype": "Small Text",
+  "insert_after": "market_price_per_kg",
+  "label": "Grading Standards"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "cold_storage_temp_c",
+  "fieldtype": "Float",
+  "insert_after": "grading_standards",
+  "label": "Cold Storage Temp (°C)"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "is_seasonal",
+  "fieldtype": "Check",
+  "insert_after": "cold_storage_temp_c",
+  "label": "Is Seasonal"
+ },
+ {
+  "dt": "Item",
+  "fieldname": "season_months",
+  "fieldtype": "Data",
+  "insert_after": "is_seasonal",
+  "label": "Season Months"
+ }
+]

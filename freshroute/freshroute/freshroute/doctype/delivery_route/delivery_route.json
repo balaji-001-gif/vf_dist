@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 17:55:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route_details_sb",
+  "route_name",
+  "assigned_vehicle",
+  "stats_sb",
+  "estimated_km",
+  "estimated_time_hrs",
+  "stops_sb",
+  "stops_table",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Route Details"
+  },
+  {
+   "fieldname": "route_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Route Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "assigned_vehicle",
+   "fieldtype": "Link",
+   "label": "Assigned Vehicle",
+   "options": "Vehicle Master"
+  },
+  {
+   "fieldname": "stats_sb",
+   "fieldtype": "Section Break",
+   "label": "Stats"
+  },
+  {
+   "fieldname": "estimated_km",
+   "fieldtype": "Float",
+   "label": "Estimated KM"
+  },
+  {
+   "fieldname": "estimated_time_hrs",
+   "fieldtype": "Float",
+   "label": "Estimated Time (Hrs)"
+  },
+  {
+   "fieldname": "stops_sb",
+   "fieldtype": "Section Break",
+   "label": "Stops"
+  },
+  {
+   "fieldname": "stops_table",
+   "fieldtype": "Table",
+   "label": "Stops Table",
+   "options": "Route Stop"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Delivery Route",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 17:55:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Delivery Route",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
