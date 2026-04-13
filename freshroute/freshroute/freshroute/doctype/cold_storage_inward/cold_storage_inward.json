@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 18:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "inward_details_sb",
+  "naming_series",
+  "inward_date",
+  "procurement",
+  "cold_storage",
+  "items_sb",
+  "items_table",
+  "stock_sb",
+  "stock_entry",
+  "monitoring_sb",
+  "temperature_at_arrival",
+  "expiry_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "inward_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Inward Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CSI-.YYYY.-.#####"
+  },
+  {
+   "default": "Now",
+   "fieldname": "inward_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Inward Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "procurement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Farmer Procurement",
+   "options": "Farmer Procurement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cold_storage",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cold Storage Location",
+   "options": "Cold Storage Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items_sb",
+   "fieldtype": "Section Break",
+   "label": "Items Received"
+  },
+  {
+   "fieldname": "items_table",
+   "fieldtype": "Table",
+   "label": "Items Table",
+   "options": "Inward Item"
+  },
+  {
+   "fieldname": "stock_sb",
+   "fieldtype": "Section Break",
+   "label": "Stock Integration"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "ERPNext Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "monitoring_sb",
+   "fieldtype": "Section Break",
+   "label": "Monitoring"
+  },
+  {
+   "fieldname": "temperature_at_arrival",
+   "fieldtype": "Float",
+   "label": "Temp at Arrival (°C)"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Estimated Expiry Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cold Storage Inward",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Cold Storage Inward",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 18:45:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "outward_details_sb",
+  "naming_series",
+  "outward_date",
+  "dispatch_order",
+  "cold_storage",
+  "items_sb",
+  "items_table",
+  "stock_sb",
+  "stock_entry",
+  "monitoring_sb",
+  "temperature_at_dispatch",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "outward_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Outward Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CSO-.YYYY.-.#####"
+  },
+  {
+   "default": "Now",
+   "fieldname": "outward_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Outward Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dispatch_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dispatch Order",
+   "options": "Dispatch Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cold_storage",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cold Storage Location",
+   "options": "Cold Storage Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items_sb",
+   "fieldtype": "Section Break",
+   "label": "Items Issued"
+  },
+  {
+   "fieldname": "items_table",
+   "fieldtype": "Table",
+   "label": "Items Table",
+   "options": "Outward Item"
+  },
+  {
+   "fieldname": "stock_sb",
+   "fieldtype": "Section Break",
+   "label": "Stock Integration"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "ERPNext Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "monitoring_sb",
+   "fieldtype": "Section Break",
+   "label": "Monitoring"
+  },
+  {
+   "fieldname": "temperature_at_dispatch",
+   "fieldtype": "Float",
+   "label": "Temp at Dispatch (°C)"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cold Storage Outward",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Cold Storage Outward",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

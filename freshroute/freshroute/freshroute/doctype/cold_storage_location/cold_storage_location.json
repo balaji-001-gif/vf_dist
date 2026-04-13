@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "creation": "2026-04-13 18:25:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "location_details_sb",
+  "location_name",
+  "warehouse",
+  "capacity_kg",
+  "current_stock_kg",
+  "is_active",
+  "temp_monitoring_sb",
+  "min_temp_c",
+  "max_temp_c",
+  "current_temp_c",
+  "humidity_pct",
+  "iot_device_id",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "location_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
+  },
+  {
+   "fieldname": "location_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "ERPNext Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity_kg",
+   "fieldtype": "Float",
+   "label": "Total Capacity (kg)"
+  },
+  {
+   "fieldname": "current_stock_kg",
+   "fieldtype": "Float",
+   "label": "Current Stock (kg)",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "temp_monitoring_sb",
+   "fieldtype": "Section Break",
+   "label": "Temperature & IoT Monitoring"
+  },
+  {
+   "fieldname": "min_temp_c",
+   "fieldtype": "Float",
+   "label": "Min Allowed Temp (°C)"
+  },
+  {
+   "fieldname": "max_temp_c",
+   "fieldtype": "Float",
+   "label": "Max Allowed Temp (°C)"
+  },
+  {
+   "fieldname": "current_temp_c",
+   "fieldtype": "Float",
+   "label": "Current Temp (°C)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "humidity_pct",
+   "fieldtype": "Float",
+   "label": "Humidity (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "iot_device_id",
+   "fieldtype": "Data",
+   "label": "IoT Device ID"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cold Storage Location",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 18:25:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Cold Storage Location",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
