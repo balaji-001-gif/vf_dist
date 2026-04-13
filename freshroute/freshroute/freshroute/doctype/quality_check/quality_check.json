@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 18:15:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "qc_details_sb",
+  "naming_series",
+  "qc_date",
+  "procurement",
+  "inspector",
+  "items_sb",
+  "items_table",
+  "results_sb",
+  "overall_result",
+  "rejection_reason",
+  "totals_sb",
+  "accepted_weight_kg",
+  "rejected_weight_kg",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "qc_details_sb",
+   "fieldtype": "Section Break",
+   "label": "QC Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "QC-.YYYY.-.#####"
+  },
+  {
+   "default": "Now",
+   "fieldname": "qc_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "QC Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "procurement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Farmer Procurement",
+   "options": "Farmer Procurement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspector",
+   "fieldtype": "Link",
+   "label": "Inspector",
+   "options": "User"
+  },
+  {
+   "fieldname": "items_sb",
+   "fieldtype": "Section Break",
+   "label": "Items Inspection"
+  },
+  {
+   "fieldname": "items_table",
+   "fieldtype": "Table",
+   "label": "Items Table",
+   "options": "QC Item"
+  },
+  {
+   "fieldname": "results_sb",
+   "fieldtype": "Section Break",
+   "label": "Results"
+  },
+  {
+   "default": "Pass",
+   "fieldname": "overall_result",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Overall Result",
+   "options": "Pass\nPartial Reject\nFull Reject",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason"
+  },
+  {
+   "fieldname": "totals_sb",
+   "fieldtype": "Section Break",
+   "label": "QC Totals"
+  },
+  {
+   "fieldname": "accepted_weight_kg",
+   "fieldtype": "Float",
+   "label": "Accepted Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejected_weight_kg",
+   "fieldtype": "Float",
+   "label": "Rejected Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Quality Check",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Quality Check",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

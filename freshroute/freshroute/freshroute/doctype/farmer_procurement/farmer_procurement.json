@@ -1,0 +1,186 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 18:05:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "procurement_details_sb",
+  "naming_series",
+  "procurement_date",
+  "farmer",
+  "agent",
+  "transport_sb",
+  "vehicle",
+  "cold_storage",
+  "items_sb",
+  "items_table",
+  "totals_sb",
+  "total_weight_kg",
+  "total_amount",
+  "payment_sb",
+  "payment_mode",
+  "payment_status",
+  "qc_sb",
+  "quality_check_status",
+  "linked_quality_check",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "procurement_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Procurement Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "FP-.YYYY.-.#####"
+  },
+  {
+   "default": "Today",
+   "fieldname": "procurement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Procurement Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "farmer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Farmer",
+   "options": "Farmer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "User"
+  },
+  {
+   "fieldname": "transport_sb",
+   "fieldtype": "Section Break",
+   "label": "Transport & Storage"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle Master"
+  },
+  {
+   "fieldname": "cold_storage",
+   "fieldtype": "Link",
+   "label": "Cold Storage",
+   "options": "Cold Storage Location"
+  },
+  {
+   "fieldname": "items_sb",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items_table",
+   "fieldtype": "Table",
+   "label": "Items Table",
+   "options": "Procurement Item"
+  },
+  {
+   "fieldname": "totals_sb",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_weight_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_sb",
+   "fieldtype": "Section Break",
+   "label": "Payment"
+  },
+  {
+   "default": "Credit",
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "Cash\nBank Transfer\nCredit"
+  },
+  {
+   "default": "Unpaid",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Unpaid\nPartial\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qc_sb",
+   "fieldtype": "Section Break",
+   "label": "Quality Check"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "quality_check_status",
+   "fieldtype": "Select",
+   "label": "Quality Check Status",
+   "options": "Pending\nPassed\nPartial Reject",
+   "read_only": 1
+  },
+  {
+   "fieldname": "linked_quality_check",
+   "fieldtype": "Link",
+   "label": "Linked Quality Check",
+   "options": "Quality Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer Procurement",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:05:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Farmer Procurement",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

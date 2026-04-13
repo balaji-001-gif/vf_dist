@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-04-13 18:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "grade",
+  "quantity_kg",
+  "rate_per_kg",
+  "amount",
+  "bags_crates",
+  "market_rate_at_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Grade",
+   "options": "A\nB\nC",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_kg",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_per_kg",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate per kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bags_crates",
+   "fieldtype": "Int",
+   "label": "Bags/Crates"
+  },
+  {
+   "fieldname": "market_rate_at_time",
+   "fieldtype": "Currency",
+   "label": "Market Rate (at time)",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Procurement Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
