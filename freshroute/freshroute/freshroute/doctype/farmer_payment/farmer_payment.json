@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-13 18:55:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_details_sb",
+  "naming_series",
+  "farmer",
+  "procurement",
+  "due_amount",
+  "deductions_sb",
+  "deductions_table",
+  "totals_sb",
+  "net_payable",
+  "payment_info_sb",
+  "payment_mode",
+  "status",
+  "payment_date",
+  "utr_number",
+  "payment_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_details_sb",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "FPY-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "farmer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Farmer",
+   "options": "Farmer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "procurement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Farmer Procurement",
+   "options": "Farmer Procurement"
+  },
+  {
+   "fieldname": "due_amount",
+   "fieldtype": "Currency",
+   "label": "Due Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deductions_sb",
+   "fieldtype": "Section Break",
+   "label": "Deductions"
+  },
+  {
+   "fieldname": "deductions_table",
+   "fieldtype": "Table",
+   "label": "Deductions Table",
+   "options": "Deduction"
+  },
+  {
+   "fieldname": "totals_sb",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "net_payable",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Payable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_info_sb",
+   "fieldtype": "Section Break",
+   "label": "Payment Info"
+  },
+  {
+   "default": "Bank Transfer",
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "Bank Transfer\nCash\nUPI"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nProcessed\nFailed"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "fieldname": "utr_number",
+   "fieldtype": "Data",
+   "label": "UTR/Transaction Reference"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "ERPNext Payment Entry",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Farmer Payment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 18:55:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Farmer Payment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
