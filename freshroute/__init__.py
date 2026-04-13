@@ -1,1 +1,1 @@
-# FreshRoute app folder
+__version__ = "1.0.0"
