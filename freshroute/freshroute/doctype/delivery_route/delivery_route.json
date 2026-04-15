@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "route_details_sb",
+  "naming_series",
   "route_name",
   "assigned_vehicle",
   "stats_sb",
@@ -21,6 +22,12 @@
    "fieldname": "route_details_sb",
    "fieldtype": "Section Break",
    "label": "Route Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "DRT-.####"
   },
   {
    "fieldname": "route_name",

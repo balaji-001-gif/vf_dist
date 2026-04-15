@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "farmer_details_sb",
+  "naming_series",
   "farmer_name",
   "farmer_code",
   "mobile_number",
@@ -44,6 +45,12 @@
    "fieldname": "farmer_details_sb",
    "fieldtype": "Section Break",
    "label": "Farmer Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "FRM-.####"
   },
   {
    "fieldname": "farmer_name",
