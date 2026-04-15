@@ -77,7 +77,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Overall Result",
-   "options": "Pass\nPartial Reject\nFull Reject",
+   "options": "Pending\nPassed\nPartial Reject\nFull Reject",
    "reqd": 1
   },
   {
