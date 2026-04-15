@@ -1,11 +1,13 @@
 [
  {
   "doctype": "Role",
+  "name": "Farmer Portal",
   "role_name": "Farmer Portal",
   "desk_access": 0
  },
  {
   "doctype": "Role",
+  "name": "Customer Portal",
   "role_name": "Customer Portal",
   "desk_access": 0
  }
