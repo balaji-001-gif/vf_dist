@@ -136,7 +136,7 @@
    "fieldname": "quality_check_status",
    "fieldtype": "Select",
    "label": "Quality Check Status",
-   "options": "Pending\nPassed\nPartial Reject",
+   "options": "Pending\nPassed\nPartial Reject\nFull Reject",
    "read_only": 1
   },
   {

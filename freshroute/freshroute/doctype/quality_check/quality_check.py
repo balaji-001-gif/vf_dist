@@ -28,7 +28,14 @@ class QualityCheck(Document):
 	def update_procurement(self):
 		if self.procurement:
 			proc = frappe.get_doc("Farmer Procurement", self.procurement)
-			proc.quality_check_status = self.overall_result
+			
+			status_map = {
+				"Pass": "Passed",
+				"Partial Reject": "Partial Reject",
+				"Full Reject": "Full Reject"
+			}
+			proc.quality_check_status = status_map.get(self.overall_result, self.overall_result)
+			
 			proc.linked_quality_check = self.name
 			proc.save()
 			
