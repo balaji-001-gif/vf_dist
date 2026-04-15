@@ -42,13 +42,23 @@ class Farmer(Document):
 	def create_supplier(self):
 		"""Create an ERPNext Supplier linked to the Farmer."""
 		if not self.supplier:
-			supplier = frappe.get_doc({
+			supplier_doc = {
 				"doctype": "Supplier",
 				"supplier_name": self.farmer_name,
-				"supplier_group": "Farmer",
-				"tax_withholding_category": "TDS - Services",
 				"is_internal_supplier": 0
-			})
+			}
+
+			# Safety check for Supplier Group
+			if frappe.db.exists("Supplier Group", "Farmer"):
+				supplier_doc["supplier_group"] = "Farmer"
+			elif frappe.db.exists("Supplier Group", "All Supplier Groups"):
+				supplier_doc["supplier_group"] = "All Supplier Groups"
+
+			# Safety check for Tax Withholding Category
+			if frappe.db.exists("Tax Withholding Category", "TDS - Services"):
+				supplier_doc["tax_withholding_category"] = "TDS - Services"
+
+			supplier = frappe.get_doc(supplier_doc)
 			supplier.insert(ignore_permissions=True)
 			frappe.db.sql("""
 				UPDATE `tabFarmer`
