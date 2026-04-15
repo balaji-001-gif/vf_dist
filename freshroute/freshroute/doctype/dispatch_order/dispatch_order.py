@@ -40,13 +40,21 @@ class DispatchOrder(Document):
         cso.dispatch_order = self.name
 
         # Resolve cold storage source from first item's warehouse if needed
+        cold_storage_loc = None
         for item in self.get("items_table"):
+            if item.warehouse and not cold_storage_loc:
+                cold_storage_loc = frappe.db.get_value("Cold Storage Location", {"warehouse": item.warehouse}, "name")
+                
             cso.append("items_table", {
                 "item_code": item.item_code,
                 "quantity_kg": item.quantity_kg,
                 "uom": item.get("uom") or "Kg"
             })
 
+        if not cold_storage_loc:
+            frappe.throw("Could not find a valid Cold Storage Location to process outward operations. Please ensure a Source Warehouse is selected on the dispatch items, and that the Warehouse is linked to a Cold Storage Location master.")
+
+        cso.cold_storage = cold_storage_loc
         cso.insert(ignore_permissions=True)
         cso.submit()
 
