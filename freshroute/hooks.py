@@ -52,4 +52,6 @@ doc_events = {
 fixtures = [
     {"doctype": "Custom Field", "filters": [["module", "=", "FreshRoute"]]},
     {"doctype": "Property Setter", "filters": [["module", "=", "FreshRoute"]]},
+    {"doctype": "Role", "filters": [["name", "in", ["Farmer Portal", "Customer Portal"]]]},
+    {"doctype": "Supplier Group", "filters": [["name", "=", "Farmer"]]},
 ]
