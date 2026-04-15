@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshRoute - New Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f1f3f5; font-family: 'Inter', sans-serif; }
+        .navbar { background-color: #1976d2; }
+        .btn-primary { background-color: #1976d2; border: none; }
+        .btn-primary:hover { background-color: #1565c0; }
+        .card { border-radius: 12px; border: none; }
+        .qty-input { width: 100px; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top p-3 mb-4 shadow">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">📦 FreshRoute Orders</span>
+            <div class="d-flex">
+                <a href="/customer-portal" class="btn btn-outline-light btn-sm me-3">Back to Dashboard</a>
+                <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4 shadow-sm bg-white mb-4">
+                    <h3 class="mb-4">Place a New Order</h3>
+                    
+                    <div id="alertBox" class="alert d-none"></div>
+
+                    <form id="orderForm">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Required Delivery Date <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="deliveryDate" value="{{ default_delivery_date }}" required>
+                        </div>
+                        
+                        <h5 class="mb-3">Select Produce Quantities</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle border">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Produce Item</th>
+                                        <th>Price (₹/kg)</th>
+                                        <th class="text-end">Order Quantity (kg)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in items %}
+                                    <tr>
+                                        <td>
+                                            <strong>{{ item.item_name }}</strong>
+                                            <input type="hidden" class="item-code" value="{{ item.item_code }}">
+                                        </td>
+                                        <td>₹{{ item.market_price_per_kg | default(0, True) }}</td>
+                                        <td class="text-end">
+                                            <input type="number" class="form-control d-inline-block qty-input item-qty" min="0" step="1" placeholder="0">
+                                        </td>
+                                    </tr>
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="3" class="text-center text-muted py-3">No active produce available for ordering.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">Confirm & Submit Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Frappe core scripts for API calls -->
+    <script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+    
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const alertBox = document.getElementById('alertBox');
+            
+            // Collect entered items
+            let items = [];
+            document.querySelectorAll('tbody tr').forEach(row => {
+                let codeInput = row.querySelector('.item-code');
+                let qtyInput = row.querySelector('.item-qty');
+                
+                if (codeInput && qtyInput) {
+                    let qty = parseFloat(qtyInput.value);
+                    if (qty > 0) {
+                        items.push({
+                            "item_code": codeInput.value,
+                            "qty": qty
+                        });
+                    }
+                }
+            });
+
+            if (items.length === 0) {
+                showAlert('Please enter a quantity strictly greater than 0 for at least one item.', 'danger');
+                return;
+            }
+
+            const deliveryDate = document.getElementById('deliveryDate').value;
+
+            // Lock button
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Submitting...";
+            alertBox.classList.add('d-none');
+
+            // Send to Frappe custom REST API
+            $.ajax({
+                url: '/api/method/freshroute.api.customer_portal.create_order',
+                type: 'POST',
+                data: {
+                    items: JSON.stringify(items),
+                    delivery_date: deliveryDate
+                },
+                success: function(r) {
+                    if (r.message && r.message.order_id) {
+                        showAlert('Order <strong>' + r.message.order_id + '</strong> was successfully created!', 'success');
+                        setTimeout(() => {
+                            window.location.href = "/customer-portal";
+                        }, 2000);
+                    }
+                },
+                error: function(err) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Confirm & Submit Order";
+                    let msg = "An error occurred while creating your order.";
+                    if (err.responseJSON && err.responseJSON._server_messages) {
+                        try {
+                            const errs = JSON.parse(err.responseJSON._server_messages);
+                            if (errs && errs.length) { msg = JSON.parse(errs[0]).message; }
+                        } catch(e) {}
+                    }
+                    showAlert(msg, 'danger');
+                }
+            });
+        });
+
+        function showAlert(msg, type) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.innerHTML = msg;
+            alertBox.className = `alert alert-${type}`;
+            alertBox.classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>

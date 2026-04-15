@@ -8,8 +8,15 @@ def create_order(items, delivery_date, delivery_address=None):
 	`items` should be a JSON list of dicts with item_code and qty.
 	"""
 	user = frappe.session.user
-	customer = frappe.db.get_value("Customer", {"portal_user": user}, "name")
+	customer = frappe.db.get_value("Customer", {"email_id": user}, "name")
 	
+	if not customer:
+		contact = frappe.db.get_value("Contact", {"email_id": user}, "name")
+		if contact:
+			links = frappe.get_all("Dynamic Link", filters={"parent": contact, "link_doctype": "Customer"}, fields=["link_name"])
+			if links:
+				customer = links[0].link_name
+				
 	if not customer:
 		frappe.throw("Authenticated user is not linked to a Customer record.")
 
