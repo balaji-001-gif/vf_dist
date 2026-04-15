@@ -193,7 +193,7 @@
    "fieldname": "primary_produce",
    "fieldtype": "Table MultiSelect",
    "label": "Primary Produce",
-   "options": "Item"
+   "options": "Farmer Produce Item"
   },
   {
    "fieldname": "agent",
