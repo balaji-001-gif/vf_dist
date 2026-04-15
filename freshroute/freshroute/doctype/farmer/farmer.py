@@ -11,7 +11,7 @@ class Farmer(Document):
 		self.create_supplier()
 
 	def validate_ifsc(self):
-		if self.ifsc_code and not frappe.utils.validate_ifsc(self.ifsc_code):
+		if self.ifsc_code:
 			pass
 
 	def mask_aadhar(self):
@@ -32,7 +32,8 @@ class Farmer(Document):
 				"roles": [{"role": "Farmer Portal"}]
 			})
 			user.insert(ignore_permissions=True)
-			self.db_set("portal_user", user.name)
+			frappe.db.set_value("Farmer", self.name, "portal_user", user.name)
+			frappe.db.commit()
 
 	def create_supplier(self):
 		"""Create an ERPNext Supplier linked to the Farmer."""
@@ -45,4 +46,5 @@ class Farmer(Document):
 				"is_internal_supplier": 0
 			})
 			supplier.insert(ignore_permissions=True)
-			self.db_set("supplier", supplier.name)
+			frappe.db.set_value("Farmer", self.name, "supplier", supplier.name)
+			frappe.db.commit()
