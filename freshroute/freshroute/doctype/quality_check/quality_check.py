@@ -20,10 +20,52 @@ class QualityCheck(Document):
 	def on_submit(self):
 		self.update_procurement()
 		if self.overall_result in ["Pass", "Partial Reject"]:
-			# In a real environment, we would trigger:
-			# 1. Create Stock Entry (Material Receipt) in ERPNext
-			# 2. Create Farmer Payment entry
-			pass
+			self.create_inward_and_payment()
+
+	def create_inward_and_payment(self):
+		if not self.procurement:
+			return
+
+		proc = frappe.get_doc("Farmer Procurement", self.procurement)
+		
+		# 1. Create Cold Storage Inward
+		inward = frappe.new_doc("Cold Storage Inward")
+		inward.procurement = self.procurement
+		inward.cold_storage = proc.cold_storage
+		
+		accepted_value = 0
+		for item in self.items_table:
+			if float(item.accepted_qty) > 0:
+				inward.append("items_table", {
+					"item_code": item.item_code,
+					"quantity_kg": item.accepted_qty,
+					"grading": item.grading
+				})
+				
+				# calculate payment due based on procurement rate
+				for p_item in proc.items_table:
+					if p_item.item_code == item.item_code:
+						accepted_value += (float(item.accepted_qty) * float(p_item.rate_per_kg))
+						break
+		
+		if len(inward.items_table) > 0:
+			inward.insert(ignore_permissions=True)
+			inward.submit()
+		
+		# 2. Create Farmer Payment
+		if accepted_value > 0:
+			payment = frappe.new_doc("Farmer Payment")
+			payment.farmer = proc.farmer
+			payment.procurement = self.procurement
+			payment.due_amount = accepted_value
+			payment.status = "Pending"
+			
+			mode = proc.payment_mode
+			if mode not in ["Bank Transfer", "Cash", "UPI"]:
+				mode = "Bank Transfer"
+				
+			payment.payment_mode = mode
+			payment.insert(ignore_permissions=True)
 
 	def update_procurement(self):
 		if self.procurement:
