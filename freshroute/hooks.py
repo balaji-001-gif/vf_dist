@@ -25,7 +25,9 @@ scheduler_events = {
 
 # Website Route Rules
 website_route_rules = [
+    {"from_route": "/farmer-portal", "to_route": "farmer_portal"},
     {"from_route": "/farmer-portal/<path:name>", "to_route": "farmer_portal"},
+    {"from_route": "/customer-portal", "to_route": "customer_portal"},
     {"from_route": "/customer-portal/<path:name>", "to_route": "customer_portal"},
 ]
 
