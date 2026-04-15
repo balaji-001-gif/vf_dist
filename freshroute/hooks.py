@@ -4,6 +4,7 @@ app_publisher = "Your Company"
 app_description = "Farm to Customer Distribution Platform"
 app_email = "admin@freshroute.com"
 app_license = "mit"
+app_version = "1.0.0"
 
 # Scheduler Events
 scheduler_events = {
@@ -38,7 +39,13 @@ doc_events = {
     },
     "Dispatch Order": {
         "on_submit": "freshroute.freshroute.doctype.dispatch_order.dispatch_order.on_submit"
-    }
+    },
+    "Cold Storage Inward": {
+        "on_submit": "freshroute.freshroute.doctype.cold_storage_inward.cold_storage_inward.on_submit"
+    },
+    "Cold Storage Outward": {
+        "on_submit": "freshroute.freshroute.doctype.cold_storage_outward.cold_storage_outward.on_submit"
+    },
 }
 
 # Fixtures
