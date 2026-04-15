@@ -32,23 +32,7 @@ website_route_rules = [
 ]
 
 # DocType Events
-doc_events = {
-    "Quality Check": {
-        "on_submit": "freshroute.freshroute.doctype.quality_check.quality_check.on_submit"
-    },
-    "Farmer Procurement": {
-        "on_submit": "freshroute.freshroute.doctype.farmer_procurement.farmer_procurement.on_submit"
-    },
-    "Dispatch Order": {
-        "on_submit": "freshroute.freshroute.doctype.dispatch_order.dispatch_order.on_submit"
-    },
-    "Cold Storage Inward": {
-        "on_submit": "freshroute.freshroute.doctype.cold_storage_inward.cold_storage_inward.on_submit"
-    },
-    "Cold Storage Outward": {
-        "on_submit": "freshroute.freshroute.doctype.cold_storage_outward.cold_storage_outward.on_submit"
-    },
-}
+doc_events = {}
 
 # Fixtures
 fixtures = [
