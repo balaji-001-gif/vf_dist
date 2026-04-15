@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dispatch_id",
+  "naming_series",
+  "dispatch_date",
+  "status",
+  "col_break_1",
+  "customer",
+  "customer_order",
+  "section_vehicle",
+  "vehicle",
+  "delivery_route",
+  "section_items",
+  "items_table",
+  "total_weight_kg",
+  "section_links",
+  "cold_storage_outward",
+  "delivery_note",
+  "section_delivery",
+  "actual_delivery_time",
+  "proof_of_delivery",
+  "temperature_log",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "dispatch_id",
+   "fieldtype": "Data",
+   "label": "Dispatch ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "DO-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "dispatch_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Dispatch Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nDispatched\nDelivered\nFailed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "section_vehicle",
+   "fieldtype": "Section Break",
+   "label": "Vehicle & Route"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_route",
+   "fieldtype": "Link",
+   "label": "Delivery Route",
+   "options": "Delivery Route"
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items_table",
+   "fieldtype": "Table",
+   "label": "Dispatch Items",
+   "options": "Dispatch Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_weight_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_links",
+   "fieldtype": "Section Break",
+   "label": "Linked Documents"
+  },
+  {
+   "fieldname": "cold_storage_outward",
+   "fieldtype": "Link",
+   "label": "Cold Storage Outward",
+   "options": "Cold Storage Outward",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_note",
+   "fieldtype": "Link",
+   "label": "Delivery Note",
+   "options": "Delivery Note",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_delivery",
+   "fieldtype": "Section Break",
+   "label": "Delivery Details"
+  },
+  {
+   "fieldname": "actual_delivery_time",
+   "fieldtype": "Datetime",
+   "label": "Actual Delivery Time"
+  },
+  {
+   "fieldname": "proof_of_delivery",
+   "fieldtype": "Attach",
+   "label": "Proof of Delivery"
+  },
+  {
+   "fieldname": "temperature_log",
+   "fieldtype": "Table",
+   "label": "Temperature Log",
+   "options": "Temp Log"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Dispatch Order",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "dispatch_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

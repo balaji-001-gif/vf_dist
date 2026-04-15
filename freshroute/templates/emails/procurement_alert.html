@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Procurement Alert</title></head>
+<body style="font-family:Arial,sans-serif;color:#212121;background:#f5f7f5;padding:20px;">
+  <div style="max-width:600px;margin:auto;background:#fff;border-radius:10px;padding:30px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+    <h2 style="color:#2e7d32;">🌿 FreshRoute — Daily Procurement Alert</h2>
+    <p>Hello {{ recipient_name }},</p>
+    <p>Here is today's scheduled procurement summary for <strong>{{ today }}</strong>:</p>
+    <table style="width:100%;border-collapse:collapse;margin-top:16px;">
+      <thead><tr style="background:#2e7d32;color:#fff;">
+        <th style="padding:10px;text-align:left;">Farmer</th>
+        <th style="padding:10px;text-align:left;">Village</th>
+        <th style="padding:10px;text-align:left;">Agent</th>
+        <th style="padding:10px;text-align:right;">Est. Qty (kg)</th>
+      </tr></thead>
+      <tbody>
+        {% for row in procurement_list %}
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:10px;">{{ row.farmer_name }}</td>
+          <td style="padding:10px;">{{ row.village }}</td>
+          <td style="padding:10px;">{{ row.agent }}</td>
+          <td style="padding:10px;text-align:right;">{{ row.expected_qty }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:20px;color:#555;font-size:0.9rem;">This is an automated alert from FreshRoute.</p>
+  </div>
+</body>
+</html>

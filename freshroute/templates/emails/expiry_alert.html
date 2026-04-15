@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Expiry Alert</title></head>
+<body style="font-family:Arial,sans-serif;padding:20px;">
+  <div style="max-width:600px;margin:auto;background:#fff;border-radius:10px;padding:30px;">
+    <h2 style="color:#e65100;">⚠️ FreshRoute — Expiry Alert</h2>
+    <p>The following batches are expiring within <strong>48 hours</strong>:</p>
+    <table style="width:100%;border-collapse:collapse;margin-top:12px;">
+      <thead><tr style="background:#e65100;color:#fff;">
+        <th style="padding:10px;">Cold Storage</th>
+        <th style="padding:10px;">Item</th>
+        <th style="padding:10px;">Qty (kg)</th>
+        <th style="padding:10px;">Expiry Date</th>
+      </tr></thead>
+      <tbody>
+        {% for row in expiring_items %}
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:10px;">{{ row.cold_storage }}</td>
+          <td style="padding:10px;">{{ row.item_name }}</td>
+          <td style="padding:10px;">{{ row.qty_kg }}</td>
+          <td style="padding:10px;color:#c62828;font-weight:600;">{{ row.expiry_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:0.9rem;color:#555;">Please take immediate action to dispatch or dispose of these items.</p>
+  </div>
+</body>
+</html>

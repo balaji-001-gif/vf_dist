@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "creation": "2026-04-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "portal_title",
+  "col_break_1",
+  "portal_url",
+  "section_auth",
+  "enable_guest_registration",
+  "require_email_verification",
+  "section_display",
+  "items_per_page",
+  "show_price_list",
+  "show_stock_availability",
+  "section_notifications",
+  "enable_order_notifications",
+  "enable_payment_notifications"
+ ],
+ "fields": [
+  {
+   "fieldname": "portal_title",
+   "fieldtype": "Data",
+   "label": "Portal Title",
+   "default": "Customer Portal"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "portal_url",
+   "fieldtype": "Data",
+   "label": "Portal URL",
+   "default": "/customer-portal"
+  },
+  {
+   "fieldname": "section_auth",
+   "fieldtype": "Section Break",
+   "label": "Authentication"
+  },
+  {
+   "fieldname": "enable_guest_registration",
+   "fieldtype": "Check",
+   "label": "Enable Guest Registration",
+   "default": "1"
+  },
+  {
+   "fieldname": "require_email_verification",
+   "fieldtype": "Check",
+   "label": "Require Email Verification",
+   "default": "1"
+  },
+  {
+   "fieldname": "section_display",
+   "fieldtype": "Section Break",
+   "label": "Display Settings"
+  },
+  {
+   "fieldname": "items_per_page",
+   "fieldtype": "Int",
+   "label": "Items Per Page",
+   "default": "20"
+  },
+  {
+   "fieldname": "show_price_list",
+   "fieldtype": "Check",
+   "label": "Show Price List",
+   "default": "1"
+  },
+  {
+   "fieldname": "show_stock_availability",
+   "fieldtype": "Check",
+   "label": "Show Stock Availability",
+   "default": "1"
+  },
+  {
+   "fieldname": "section_notifications",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "fieldname": "enable_order_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Order Notifications",
+   "default": "1"
+  },
+  {
+   "fieldname": "enable_payment_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Payment Notifications",
+   "default": "1"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "Customer Portal Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "creation": "2026-04-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "col_break_1",
+  "default_warehouse",
+  "section_procurement",
+  "default_procurement_account",
+  "agent_role",
+  "min_qc_pass_pct",
+  "section_notifications",
+  "whatsapp_provider",
+  "twilio_account_sid",
+  "twilio_auth_token",
+  "twilio_from_number",
+  "section_mandi",
+  "mandi_api_url",
+  "mandi_api_key",
+  "section_gst",
+  "default_gst_rate",
+  "hsn_code_default"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "section_procurement",
+   "fieldtype": "Section Break",
+   "label": "Procurement Settings"
+  },
+  {
+   "fieldname": "default_procurement_account",
+   "fieldtype": "Link",
+   "label": "Default Procurement Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "agent_role",
+   "fieldtype": "Link",
+   "label": "Agent Role",
+   "options": "Role",
+   "default": "Purchase User"
+  },
+  {
+   "fieldname": "min_qc_pass_pct",
+   "fieldtype": "Percent",
+   "label": "Minimum QC Pass %",
+   "default": "70"
+  },
+  {
+   "fieldname": "section_notifications",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "fieldname": "whatsapp_provider",
+   "fieldtype": "Select",
+   "label": "WhatsApp Provider",
+   "options": "\nTwilio\nGupshup\nMeta Cloud API"
+  },
+  {
+   "fieldname": "twilio_account_sid",
+   "fieldtype": "Data",
+   "label": "Twilio Account SID"
+  },
+  {
+   "fieldname": "twilio_auth_token",
+   "fieldtype": "Password",
+   "label": "Twilio Auth Token"
+  },
+  {
+   "fieldname": "twilio_from_number",
+   "fieldtype": "Data",
+   "label": "Twilio From Number"
+  },
+  {
+   "fieldname": "section_mandi",
+   "fieldtype": "Section Break",
+   "label": "Mandi API Settings"
+  },
+  {
+   "fieldname": "mandi_api_url",
+   "fieldtype": "Data",
+   "label": "Mandi API URL"
+  },
+  {
+   "fieldname": "mandi_api_key",
+   "fieldtype": "Password",
+   "label": "Mandi API Key"
+  },
+  {
+   "fieldname": "section_gst",
+   "fieldtype": "Section Break",
+   "label": "GST Settings"
+  },
+  {
+   "fieldname": "default_gst_rate",
+   "fieldtype": "Percent",
+   "label": "Default GST Rate",
+   "default": "5"
+  },
+  {
+   "fieldname": "hsn_code_default",
+   "fieldtype": "Data",
+   "label": "Default HSN Code",
+   "default": "0702"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreshRoute",
+ "name": "FreshRoute Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

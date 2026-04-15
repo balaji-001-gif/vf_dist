@@ -1,0 +1,70 @@
+/* FreshRoute Portal Styles */
+:root {
+  --fr-green: #2e7d32;
+  --fr-green-light: #4caf50;
+  --fr-orange: #f57c00;
+  --fr-bg: #f5f7f5;
+  --fr-card: #ffffff;
+  --fr-text: #212121;
+  --fr-muted: #757575;
+}
+
+body.freshroute-portal {
+  background: var(--fr-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--fr-text);
+}
+
+.fr-navbar {
+  background: var(--fr-green);
+  color: #fff;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fr-navbar .fr-logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+
+.fr-card {
+  background: var(--fr-card);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 20px;
+}
+
+.fr-stat { font-size: 2rem; font-weight: 700; color: var(--fr-green); }
+.fr-stat-label { font-size: 0.85rem; color: var(--fr-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.fr-badge-pass { background: #e8f5e9; color: #2e7d32; border-radius: 4px; padding: 2px 8px; font-size: 0.8rem; }
+.fr-badge-pending { background: #fff3e0; color: #e65100; border-radius: 4px; padding: 2px 8px; font-size: 0.8rem; }
+.fr-badge-reject { background: #fce4ec; color: #c62828; border-radius: 4px; padding: 2px 8px; font-size: 0.8rem; }
+
+.fr-table { width: 100%; border-collapse: collapse; }
+.fr-table th { background: var(--fr-green); color: #fff; padding: 10px 12px; text-align: left; font-size: 0.85rem; }
+.fr-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+.fr-table tr:hover td { background: #f9fdf9; }
+
+.fr-btn {
+  background: var(--fr-green);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.fr-btn:hover { background: var(--fr-green-light); }
+.fr-btn-outline {
+  background: transparent;
+  color: var(--fr-green);
+  border: 1.5px solid var(--fr-green);
+}
+
+/* Stat card on dashboard page */
+.stat-card { border-radius:10px; padding:20px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.07); text-align:center; }
+.stat-label { font-size:0.8rem; color:#757575; text-transform:uppercase; margin-bottom:6px; }
+.stat-value { font-size:1.8rem; font-weight:700; color:#2e7d32; }
+.stat-sub { font-size:0.9rem; color:#555; }

@@ -1,0 +1,5 @@
+# FreshRoute Patches
+# Format: freshroute.patches.<patch_module>
+
+# v1.0 Initial setup patches (add patches here as migrations are needed)
+# freshroute.patches.v1_0.setup_initial_data
