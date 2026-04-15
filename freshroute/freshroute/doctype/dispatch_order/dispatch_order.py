@@ -74,12 +74,21 @@ class DispatchOrder(Document):
             dn.against_sales_order = self.customer_order
 
         for item in self.get("items_table"):
-            dn.append("items", {
+            row_data = {
                 "item_code": item.item_code,
                 "qty": item.quantity_kg,
                 "uom": item.get("uom") or "Kg",
-                "against_sales_order": self.customer_order,
-            })
+            }
+            if self.customer_order:
+                row_data["against_sales_order"] = self.customer_order
+                so_items = frappe.get_all("Sales Order Item", 
+                    filters={"parent": self.customer_order, "item_code": item.item_code}, 
+                    fields=["name"]
+                )
+                if so_items:
+                    row_data["so_detail"] = so_items[0].name
+                    
+            dn.append("items", row_data)
 
         dn.insert(ignore_permissions=True)
         dn.submit()
