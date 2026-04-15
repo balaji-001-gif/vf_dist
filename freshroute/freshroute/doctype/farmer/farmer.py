@@ -32,7 +32,11 @@ class Farmer(Document):
 				"roles": [{"role": "Farmer Portal"}]
 			})
 			user.insert(ignore_permissions=True)
-			frappe.db.set_value("Farmer", self.name, "portal_user", user.name)
+			frappe.db.sql("""
+				UPDATE `tabFarmer`
+				SET portal_user = %s
+				WHERE name = %s
+			""", (user.name, self.name))
 			frappe.db.commit()
 
 	def create_supplier(self):
@@ -46,5 +50,9 @@ class Farmer(Document):
 				"is_internal_supplier": 0
 			})
 			supplier.insert(ignore_permissions=True)
-			frappe.db.set_value("Farmer", self.name, "supplier", supplier.name)
+			frappe.db.sql("""
+				UPDATE `tabFarmer`
+				SET supplier = %s
+				WHERE name = %s
+			""", (supplier.name, self.name))
 			frappe.db.commit()
