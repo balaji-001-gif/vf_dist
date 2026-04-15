@@ -159,9 +159,8 @@
   },
   {
    "fieldname": "state",
-   "fieldtype": "Link",
-   "label": "State",
-   "options": "State"
+   "fieldtype": "Data",
+   "label": "State"
   },
   {
    "fieldname": "pincode",
