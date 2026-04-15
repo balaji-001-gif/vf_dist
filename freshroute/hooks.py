@@ -43,6 +43,6 @@ doc_events = {
 
 # Fixtures
 fixtures = [
-    {"dt": "Custom Field", "filters": [["module", "=", "FreshRoute"]]},
-    {"dt": "Property Setter", "filters": [["module", "=", "FreshRoute"]]},
+    {"doctype": "Custom Field", "filters": [["module", "=", "FreshRoute"]]},
+    {"doctype": "Property Setter", "filters": [["module", "=", "FreshRoute"]]},
 ]
