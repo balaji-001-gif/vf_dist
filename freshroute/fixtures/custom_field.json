@@ -1,6 +1,8 @@
 [
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-produce_category",
+  "dt": "Item",
   "fieldname": "produce_category",
   "fieldtype": "Select",
   "insert_after": "item_group",
@@ -8,21 +10,27 @@
   "options": "Vegetable\nFruit\nHerb\nExotic"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-perishability_days",
+  "dt": "Item",
   "fieldname": "perishability_days",
   "fieldtype": "Int",
   "insert_after": "produce_category",
   "label": "Perishability (Days)"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-min_purchase_qty_kg",
+  "dt": "Item",
   "fieldname": "min_purchase_qty_kg",
   "fieldtype": "Float",
   "insert_after": "perishability_days",
   "label": "Min Purchase Qty (kg)"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-market_price_per_kg",
+  "dt": "Item",
   "fieldname": "market_price_per_kg",
   "fieldtype": "Currency",
   "insert_after": "min_purchase_qty_kg",
@@ -30,28 +38,36 @@
   "read_only": 1
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-grading_standards",
+  "dt": "Item",
   "fieldname": "grading_standards",
   "fieldtype": "Small Text",
   "insert_after": "market_price_per_kg",
   "label": "Grading Standards"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-cold_storage_temp_c",
+  "dt": "Item",
   "fieldname": "cold_storage_temp_c",
   "fieldtype": "Float",
   "insert_after": "grading_standards",
   "label": "Cold Storage Temp (°C)"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-is_seasonal",
+  "dt": "Item",
   "fieldname": "is_seasonal",
   "fieldtype": "Check",
   "insert_after": "cold_storage_temp_c",
   "label": "Is Seasonal"
  },
  {
-  "doctype": "Item",
+  "doctype": "Custom Field",
+  "name": "Item-season_months",
+  "dt": "Item",
   "fieldname": "season_months",
   "fieldtype": "Data",
   "insert_after": "is_seasonal",
