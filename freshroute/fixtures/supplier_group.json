@@ -1,6 +1,7 @@
 [
  {
   "doctype": "Supplier Group",
+  "name": "Farmer",
   "supplier_group_name": "Farmer"
  }
 ]
