@@ -1,20 +1,270 @@
 {
  "charts": [],
- "content": "[{\"type\":\"markdown\",\"data\":{\"content\":\"# FreshRoute Dashboard\\nWelcome to the Farm-to-Customer Distribution Platform.\"}}]",
- "creation": "2026-04-13 17:00:00.000000",
+ "content": "[{\"id\": \"cb-farmer\", \"type\": \"card\", \"data\": {\"card_name\": \"Farmer Management\", \"col\": 12}}, {\"id\": \"cb-quality\", \"type\": \"card\", \"data\": {\"card_name\": \"Quality & Storage\", \"col\": 12}}, {\"id\": \"cb-dispatch\", \"type\": \"card\", \"data\": {\"card_name\": \"Dispatch & Delivery\", \"col\": 12}}, {\"id\": \"cb-settings\", \"type\": \"card\", \"data\": {\"card_name\": \"Settings\", \"col\": 12}}]",
+ "creation": "2024-01-01 00:00:00.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
- "icon": "package",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "agriculture",
  "idx": 0,
- "is_standard": 1,
+ "is_default": 0,
+ "is_hidden": 0,
  "label": "FreshRoute",
- "modified": "2026-04-13 17:00:00.000000",
+ "links": [
+  {
+   "hidden": 0,
+   "idx": 1,
+   "is_query_report": 0,
+   "label": "Farmer Management",
+   "link_count": 0,
+   "onboard": 1,
+   "title": "Farmer Management",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 2,
+   "is_query_report": 0,
+   "label": "Farmer",
+   "link_count": 0,
+   "link_to": "Farmer",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 3,
+   "is_query_report": 0,
+   "label": "Farmer Procurement",
+   "link_count": 0,
+   "link_to": "Farmer Procurement",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 4,
+   "is_query_report": 0,
+   "label": "Farmer Payment",
+   "link_count": 0,
+   "link_to": "Farmer Payment",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 5,
+   "is_query_report": 0,
+   "label": "Quality & Storage",
+   "link_count": 0,
+   "onboard": 1,
+   "title": "Quality & Storage",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 6,
+   "is_query_report": 0,
+   "label": "Quality Check",
+   "link_count": 0,
+   "link_to": "Quality Check",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 7,
+   "is_query_report": 0,
+   "label": "Cold Storage Location",
+   "link_count": 0,
+   "link_to": "Cold Storage Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 8,
+   "is_query_report": 0,
+   "label": "Cold Storage Inward",
+   "link_count": 0,
+   "link_to": "Cold Storage Inward",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 9,
+   "is_query_report": 0,
+   "label": "Cold Storage Outward",
+   "link_count": 0,
+   "link_to": "Cold Storage Outward",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 10,
+   "is_query_report": 0,
+   "label": "Dispatch & Delivery",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Dispatch & Delivery",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 11,
+   "is_query_report": 0,
+   "label": "Dispatch Order",
+   "link_count": 0,
+   "link_to": "Dispatch Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 12,
+   "is_query_report": 0,
+   "label": "Delivery Route",
+   "link_count": 0,
+   "link_to": "Delivery Route",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 13,
+   "is_query_report": 0,
+   "label": "Vehicle Master",
+   "link_count": 0,
+   "link_to": "Vehicle Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 14,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Settings",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 15,
+   "is_query_report": 0,
+   "label": "FreshRoute Settings",
+   "link_count": 0,
+   "link_to": "FreshRoute Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 16,
+   "is_query_report": 0,
+   "label": "Customer Portal Settings",
+   "link_count": 0,
+   "link_to": "Customer Portal Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "FreshRoute",
  "name": "FreshRoute",
  "owner": "Administrator",
- "parent_page": "Desk",
  "public": 1,
+ "restrict_to_domain": "",
  "roles": [],
- "shortcuts": []
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "format": "{} Active",
+   "label": "Farmer",
+   "link_to": "Farmer",
+   "stats_filter": "{\"active\": 1}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "format": "{} Pending",
+   "label": "Farmer Procurement",
+   "link_to": "Farmer Procurement",
+   "stats_filter": "{\"docstatus\": 0}",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "format": "{} Pending",
+   "label": "Quality Check",
+   "link_to": "Quality Check",
+   "stats_filter": "{\"docstatus\": 0}",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "format": "{} Active",
+   "label": "Dispatch Order",
+   "link_to": "Dispatch Order",
+   "stats_filter": "{\"docstatus\": 1}",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "label": "Delivery Route",
+   "link_to": "Delivery Route",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "label": "Cold Storage Inward",
+   "link_to": "Cold Storage Inward",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "label": "Cold Storage Outward",
+   "link_to": "Cold Storage Outward",
+   "type": "DocType"
+  },
+  {
+   "color": "Gray",
+   "label": "Vehicle Master",
+   "link_to": "Vehicle Master",
+   "type": "DocType"
+  }
+ ],
+ "title": "FreshRoute"
 }
