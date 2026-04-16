@@ -8,11 +8,11 @@ class TestQualityCheck(unittest.TestCase):
         # Minimal smoke test — checks the doc can be created and submitted
         qc = frappe.new_doc("Quality Check")
         qc.qc_date = frappe.utils.now_datetime()
-        qc.overall_result = "Pass"
+        qc.overall_result = "Passed"
         qc.accepted_weight_kg = 100
         qc.rejected_weight_kg = 0
         # Just validate it can be instantiated
-        self.assertEqual(qc.overall_result, "Pass")
+        self.assertEqual(qc.overall_result, "Passed")
 
     def test_qc_full_reject_sets_zero_accepted(self):
         qc = frappe.new_doc("Quality Check")
