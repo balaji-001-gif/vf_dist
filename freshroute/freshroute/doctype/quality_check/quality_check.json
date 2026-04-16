@@ -72,7 +72,7 @@
    "label": "Results"
   },
   {
-   "default": "Pass",
+   "default": "Pending",
    "fieldname": "overall_result",
    "fieldtype": "Select",
    "in_list_view": 1,
