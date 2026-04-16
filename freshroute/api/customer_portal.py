@@ -1,6 +1,25 @@
 import frappe
 import json
 
+def get_linked_customer(user):
+	"""Finds the Customer record linked to the given User email."""
+	# 1. Check direct email match on Customer
+	customer = frappe.db.get_value("Customer", {"email_id": user}, "name")
+	if customer:
+		return customer
+
+	# 2. Check linked Contact
+	contact = frappe.db.get_value("Contact", {"email_id": user}, "name")
+	if contact:
+		links = frappe.get_all("Dynamic Link", 
+			filters={"parent": contact, "link_doctype": "Customer"}, 
+			fields=["link_name"]
+		)
+		if links:
+			return links[0].link_name
+	
+	return None
+
 @frappe.whitelist(allow_guest=False)
 def create_order(items, delivery_date, delivery_address=None):
 	"""
@@ -8,15 +27,8 @@ def create_order(items, delivery_date, delivery_address=None):
 	`items` should be a JSON list of dicts with item_code and qty.
 	"""
 	user = frappe.session.user
-	customer = frappe.db.get_value("Customer", {"email_id": user}, "name")
+	customer = get_linked_customer(user)
 	
-	if not customer:
-		contact = frappe.db.get_value("Contact", {"email_id": user}, "name")
-		if contact:
-			links = frappe.get_all("Dynamic Link", filters={"parent": contact, "link_doctype": "Customer"}, fields=["link_name"])
-			if links:
-				customer = links[0].link_name
-				
 	if not customer:
 		frappe.throw("Authenticated user is not linked to a Customer record.")
 

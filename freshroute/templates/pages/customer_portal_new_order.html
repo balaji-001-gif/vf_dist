@@ -31,7 +31,9 @@
                 <div class="card p-4 shadow-sm bg-white mb-4">
                     <h3 class="mb-4">Place a New Order</h3>
                     
-                    <div id="alertBox" class="alert d-none"></div>
+                    <div id="alertBox" class="alert {% if customer_error %}alert-danger{% else %}d-none{% endif %}">
+                        {% if customer_error %}{{ customer_error }}{% endif %}
+                    </div>
 
                     <form id="orderForm">
                         <div class="mb-4">
@@ -71,7 +73,9 @@
                         </div>
 
                         <div class="d-grid mt-4">
-                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">Confirm & Submit Order</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" {% if customer_error %}disabled{% endif %}>
+                                {% if customer_error %}Ordering Disabled{% else %}Confirm & Submit Order{% endif %}
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -83,6 +87,14 @@
     <script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
     
     <script>
+        {% if customer_error %}
+        // If there's a customer error, prevent any further interaction
+        $(document).ready(function() {
+            $('.item-qty').prop('disabled', true);
+            $('#deliveryDate').prop('disabled', true);
+        });
+        {% endif %}
+
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
