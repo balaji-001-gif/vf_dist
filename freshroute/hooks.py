@@ -38,6 +38,7 @@ doc_events = {}
 
 # Fixtures
 fixtures = [
+    {"doctype": "Workspace", "filters": [["module", "=", "FreshRoute"]]},
     {"doctype": "Custom Field", "filters": [["module", "=", "FreshRoute"]]},
     {"doctype": "Property Setter", "filters": [["module", "=", "FreshRoute"]]},
     {"doctype": "Role", "filters": [["name", "in", ["Farmer Portal", "Customer Portal"]]]},
