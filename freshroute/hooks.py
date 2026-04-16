@@ -5,6 +5,7 @@ app_description = "Farm to Customer Distribution Platform"
 app_email = "admin@freshroute.com"
 app_license = "mit"
 app_version = "1.0.0"
+app_modules = ["FreshRoute"]
 
 # Scheduler Events
 scheduler_events = {
